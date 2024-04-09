@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <title>ask-pipkin.com</title>
+    <link
+      rel="stylesheet"
+      href="../static/css/bootstrap.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../static/css/custom.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar bg-body-tertiary border-bottom">
+      <div class="container-sm-fluid container-lg">
+        <a class="navbar-brand">AskPupkin</a>
+        <form
+          class="d-flex"
+          role="search"
+        >
+          <input
+            class="form-control me-2 rounded-pill"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button
+            class="btn btn-success btn-lg rounded-0"
+            type="submit"
+          >ASK!</button>
+        </form>
+        <div class="d-flex justify-content-between gap-3">
+          <div class="border">
+            <img
+              src="../static/img/alter_avatar.jpg"
+              alt="Avatar"
+              width="50"
+              height="50"
+            />
+          </div>
+          <div class="d-flex flex-column justify-content-between">
+            <div>Dr. Pepper</div>
+            <div>
+              <a href="/settings.html">Settings</a>
+              <a href="/logout.html">Log out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main class="container-fluid container-lg mt-3">
+      <div class="d-flex gap-3 align-items-center">
+        <h1>New Question</h1>
+      </div>
+      <div class="row mt-5">
+        <div class="col-8">
+          <form>
+            <div class="row mb-3">
+              <div class="col-2">
+                <h2 class="card-title">
+                  Title
+                </h2>
+              </div>
+              <div class="col form-check p-0">
+                <input
+                  class="form-control is-invalid form-control-lg"
+                  type="text"
+                  placeholder="Max 64 characters"
+                  maxlength="64"
+                  value="你好世界?"
+                  required
+                />
+                <div class="invalid-feedback">Мы не понимать, используйте латиницу или кириллицу</div>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-2">
+                <h2 class="card-title">
+                  Text
+                </h2>
+              </div>
+              <div class="col p-0">
+                <textarea
+                  class="form-control"
+                  placeholder="Enter something... (max 1024 characters)"
+                  rows="8"
+                  no-resize
+                  maxlength="1024"
+                ></textarea>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-2">
+                <h2 class="card-title">
+                  Tags
+                </h2>
+              </div>
+              <div class="col p-0">
+                <input
+                  class="form-control form-control-lg"
+                  type="text"
+                  placeholder="bender black-jack (max 64 characters)"
+                  maxlength="64"
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <button
+                  class="btn rounded-0 border"
+                  type="submit"
+                >ASK!</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-4">
+          <h3>Popular Tags</h3>
+          <div class="row">
+            <div class="col">
+              <span class="badge text-dark">perl</span>
+              <span class="badge text-danger">Python</span>
+              <span class="badge text-dark">TechnoPark</span>
+              <span class="badge text-danger">MySQL</span>
+              <span class="badge text-success">django</span>
+              <span class="badge text-dark">Mail.ru</span>
+              <span class="badge text-dark">Voloshin</span>
+              <span class="badge text-warning">Firefox</span>
+            </div>
+          </div>
+          <h3 class="mt-5">Best Members</h3>
+          <div>
+            <a
+              href="/member.html"
+              class="d-block"
+            >
+              Mr. Freeman
+            </a>
+            <a
+              href="/member.html"
+              class="d-block"
+            >
+              Dr. House
+            </a>
+            <a
+              href="/member.html"
+              class="d-block"
+            >
+              Bender
+            </a>
+            <a
+              href="/member.html"
+              class="d-block"
+            >
+              Queen Victoria
+            </a>
+            <a
+              href="/member.html"
+              class="d-block"
+            >V. Putin</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="p-3 bg-light">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>
+    <script src="../static/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
