@@ -14,7 +14,7 @@ QUESTIONS = [{
         'text': f'text {i}',
         'answers': f'answers {randint(0, 6)}',
         'tags': [{'name': tag} for tag in sample(TAGS, randint(1, 3))],
-        'likes': randint(-10, 10),
+        'likes': randint(10, 20),
         'avatar': '../static/img/alter_question_avatar.jpg',
     } for i in range(1,30)]
 
@@ -38,22 +38,20 @@ def paginate(
 
 
 def index(request: HttpRequest):
-    global QUESTIONS
     return paginate(request, "index.html", QUESTIONS, content={"authed": authed})
 
 def question(request, id):
     return render(request, "question.html", {"authed": authed})
 
 def tag(request, tag_name):
-    global QUESTIONS
-    questions = list(filter(lambda x: x['tags'].find(tag_name), QUESTIONS))
+    print(QUESTIONS)
+    QUESTIONS['tags'] = [{'name': tag_name}]
     
-    return paginate(request, "tag.html", questions, content={"authed": authed})
+    return paginate(request, "tag.html", QUESTIONS, content={"authed": authed})
 
 def hot(request):
-    global QUESTIONS
-    questions = sorted(QUESTIONS, key=lambda x: x['likes'])[::-1]
-    return paginate(request, "hot.html", questions, content={"authed": authed})
+    QUESTIONS = sorted(QUESTIONS, key=lambda x: x['likes'])[::-1]
+    return paginate(request, "hot.html", QUESTIONS, content={"authed": authed})
     
 
 def signup(request):

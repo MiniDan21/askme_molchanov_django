@@ -14,7 +14,7 @@ QUESTIONS = [{
         'text': f'text {i}',
         'answers': f'answers {randint(0, 6)}',
         'tags': [{'name': tag} for tag in sample(TAGS, randint(1, 3))],
-        'likes': randint(-10, 10),
+        'likes': randint(10, 20),
         'avatar': '../static/img/alter_question_avatar.jpg',
     } for i in range(1,30)]
 

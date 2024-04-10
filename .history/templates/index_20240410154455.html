@@ -7,7 +7,7 @@
         <a href="/ask">Create new question</a>
       </div>
       {% include 'layouts/question_list.html' %}
-      {% include "layouts/pagination.html" with page_obj=questions route="index"%}
+      {% include "layouts/pagination.html" with page_obj=questions route=index%}
       {% include 'layouts/popular.html' %}
         
 {% endblock %}
