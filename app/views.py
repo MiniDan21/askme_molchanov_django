@@ -5,6 +5,8 @@ from django.http import HttpRequest
 from django.shortcuts import get_object_or_404, render, redirect
 from django.core.paginator import Paginator, InvalidPage
 
+from .models import *
+
 
 authed = True
 TAGS = ['IT', 'JS', 'C++', 'Python', 'Django', 'Golang']
@@ -39,20 +41,29 @@ def paginate(
 
 def index(request: HttpRequest):
     global QUESTIONS
-    return paginate(request, "index.html", QUESTIONS, content={"authed": authed})
+    questions = Question.manager.get_new()
+    if not questions:
+        questions = QUESTIONS
+    return paginate(request, "index.html", questions, content={"authed": authed})
 
 def question(request, id):
     return render(request, "question.html", {"authed": authed})
 
 def tag(request, tag_name):
     global QUESTIONS
-    questions = list(filter(lambda x: x['tags'].find(tag_name), QUESTIONS))
+    # questions = list(filter(lambda x: x['tags'].find(tag_name), QUESTIONS))
+    questions = Question.manager.get_by_tag(tag_name)
+    if not questions:
+        questions = QUESTIONS
     
     return paginate(request, "tag.html", questions, content={"authed": authed})
 
 def hot(request):
     global QUESTIONS
-    questions = sorted(QUESTIONS, key=lambda x: x['likes'])[::-1]
+    # questions = sorted(QUESTIONS, key=lambda x: x['likes'])[::-1]
+    questions = Question.manager.get_hot()
+    if not questions:
+        questions = QUESTIONS
     return paginate(request, "hot.html", questions, content={"authed": authed})
     
 

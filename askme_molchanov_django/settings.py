@@ -74,11 +74,19 @@ WSGI_APPLICATION = 'askme_molchanov_django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# Временно вместо .env
+from .config import NAME, USER, PASSWORD, HOST, PORT
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': NAME,
+       'USER': USER,
+       'PASSWORD': PASSWORD,
+       'HOST': HOST,
+       'PORT': PORT,
+   }
 }
 
 
